@@ -1,0 +1,146 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --color-cesi-50: #fffdeb;
+  --color-cesi-100: #fff5cb;
+  --color-cesi-200: #feec8f;
+  --color-cesi-300: #fce557;
+  --color-cesi-400: #fbe216;
+  --color-cesi-500: #e3c806;
+  --color-cesi-600: #b89f03;
+  --color-cesi-700: #8a7507;
+  --color-cesi-800: #6f5d0c;
+  --color-cesi-900: #5d4d10;
+  --color-cesi-950: #362b04;
+}
+
+:root {
+  --ui-container: 56rem;
+  --ui-primary: #333333;
+  --ui-secondary: var(--ui-color-secondary-400);
+}
+
+.dark {
+  --ui-primary: var(--ui-color-primary-400);
+  --ui-secondary: var(--ui-color-secondary-400);
+}
+
+::selection {
+  background-color: var(--color-cesi-400);
+  color: #333333;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 2cm;
+}
+
+.print-doc {
+  color: var(--doc-text);
+  font-family: var(--doc-font);
+  font-size: 11pt;
+  line-height: 1.4;
+  print-color-adjust: exact;
+
+  & > * + * {
+    margin-top: 0.6rem;
+  }
+  & .kicker {
+    color: var(--doc-accent-dark);
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  & .title {
+    margin-top: 0.2rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 3px solid var(--doc-accent);
+    padding-bottom: 0.4rem;
+    font-size: 24pt;
+    font-weight: 700;
+  }
+  & h1 {
+    margin-top: 1.6rem;
+    border-left: 4.5px solid var(--doc-accent);
+    padding-left: 0.6rem;
+    font-size: 16pt;
+    font-weight: 700;
+    break-after: avoid;
+  }
+  & h2 {
+    margin-top: 1rem;
+    font-size: 12pt;
+    font-weight: 700;
+    break-after: avoid;
+  }
+  & :is(h3, h4, h5, h6) {
+    margin-top: 0.8rem;
+    font-weight: 700;
+    font-style: italic;
+    break-after: avoid;
+  }
+  & ul {
+    list-style: disc;
+    padding-left: 1.5em;
+  }
+  & ol {
+    list-style: decimal;
+    padding-left: 1.5em;
+  }
+  & :is(ul, ol, div) > * + * {
+    margin-top: 0.3rem;
+  }
+  & blockquote {
+    border-left: 3px solid var(--doc-border);
+    padding-left: 1em;
+    font-style: italic;
+  }
+  & code {
+    font-family: ui-monospace, monospace;
+    font-size: 0.9em;
+  }
+  & pre {
+    white-space: pre-wrap;
+  }
+  & figure {
+    display: flex;
+    justify-content: center;
+    break-inside: avoid;
+  }
+  & img {
+    max-height: 18cm;
+  }
+  & table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  & :is(th, td) {
+    border: 1px solid var(--doc-border);
+    padding: 0.35rem 0.5rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  & thead th {
+    background: var(--doc-accent);
+  }
+  & .fields tbody th {
+    background: var(--doc-accent);
+  }
+  & tr {
+    break-inside: avoid;
+  }
+  & .placeholder {
+    color: var(--doc-muted);
+    font-style: italic;
+  }
+}
