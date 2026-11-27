@@ -7,6 +7,11 @@ defineProps<{ loop: Loop }>();
 </script>
 
 <template>
+  <template v-if="loop.outbound.context.trim()">
+    <h1>Contexte</h1>
+    <p><Lines :text="loop.outbound.context" /></p>
+  </template>
+
   <template v-if="loop.outbound.keywords.length">
     <h1>Mots clés</h1>
     <p>{{ loop.outbound.keywords.join(", ") }}</p>

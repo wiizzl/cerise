@@ -31,6 +31,7 @@ export const aavSchema = z.object({
 export const outboundSchema = z.object({
   loop: z.number().int().min(1),
   ue: z.string(),
+  context: z.string().default(""),
   keywords: z.array(z.string()),
   unknownWords: z.array(z.string()),
   problem: z.string(),
@@ -78,6 +79,7 @@ export const newId = () => crypto.randomUUID();
 export const newOutbound = (): Outbound => ({
   loop: 1,
   ue: "",
+  context: "",
   keywords: [],
   unknownWords: [],
   problem: "",

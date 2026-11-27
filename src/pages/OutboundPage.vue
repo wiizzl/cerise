@@ -23,6 +23,15 @@ const outbound = computed(() => session.loop?.outbound);
         </div>
       </FormSection>
 
+      <FormSection title="Contexte" icon="i-lucide-notebook-pen">
+        <UTextarea
+          v-model="outbound.context"
+          autoresize
+          :rows="2"
+          class="w-full"
+        />
+      </FormSection>
+
       <FormSection title="Mots clés" icon="i-lucide-key-round">
         <UInputTags v-model="outbound.keywords" add-on-blur class="w-full" />
       </FormSection>

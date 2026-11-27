@@ -15,7 +15,7 @@ defineProps<{ rows: [label: string, value: string | null][] }>();
         <th>{{ label }}</th>
         <td>
           <Lines v-if="value !== null" :text="value" />
-          <span v-else class="placeholder">Écris ici…</span>
+          <span v-else class="placeholder">...</span>
         </td>
       </tr>
     </tbody>

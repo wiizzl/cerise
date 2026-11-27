@@ -12,6 +12,7 @@ const lines = (entries: Entry[]) => entries.map((e) => e.text).join("\n");
 
 const context = (
   [
+    ["Contexte", props.loop.outbound.context],
     ["Mots-clés", props.loop.outbound.keywords.join(", ")],
     ["Problématique", props.loop.outbound.problem],
     ["Contraintes", lines(props.loop.outbound.constraints)],
@@ -48,7 +49,7 @@ const steps = orBlank(props.loop.outbound.actionPlan, { id: "", text: "" });
         <td>
           <strong>{{ w }}</strong>
         </td>
-        <td><span class="placeholder">Écris ici…</span></td>
+        <td><span class="placeholder">...</span></td>
       </tr>
     </tbody>
   </table>
@@ -58,7 +59,7 @@ const steps = orBlank(props.loop.outbound.actionPlan, { id: "", text: "" });
     <h2>{{ h.text }}</h2>
     <FieldTable
       :rows="[
-        ['Statut', '☐ Validée     ☐ Partielle     ☐ Invalidée'],
+        ['Statut', null],
         ['Justification', null],
       ]"
     />
@@ -68,7 +69,7 @@ const steps = orBlank(props.loop.outbound.actionPlan, { id: "", text: "" });
   <template v-for="(s, index) in steps" :key="s.id">
     <h2>Étape {{ index + 1 }} · {{ s.text }}</h2>
     <p>
-      <span class="placeholder">Ce que j'ai fait, ce que j'en retiens…</span>
+      <span class="placeholder">...</span>
     </p>
   </template>
 </template>
